@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛАБ 2 - Оюутны бүртгэлийн анкет</title>
+</head>
+<body>
+
+    <!-- Вэбийн толгой хэсэг -->
+    <header>
+        <h1>Оюутны Бүртгэлийн  анкет</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">Миний тухай</a></li>
+                <li><a href="#register">Бүртгэлийн анкет</a></li>
+                <li><a href="#grades">Дүнгийн мэдээлэл</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Үндсэн агуулгын хэсэг -->
+    <main>
+
+        <!-- 1. Сонирхлын жагсаалт -->
+        <section id="about">
+            <h2>Миний сонирхол</h2>
+            <ul>
+                <li>Програмчлал ба Вэб хөгжүүлэлт (Python, C++, HTML/CSS)</li>
+                <li>Электроник болон юмсын Интернет / Микроконтроллер (Arduino, ESP32)</li>
+                <li>Захиалгат робот бүтээх ба технологийн шинэ шийдэл судлах</li>
+            </ul>
+        </section>
+
+        <!-- 2. Бүртгэлийн анкет ба Валидаци -->
+        <section id="register">
+            <h2>Бүртгэлийн анкет</h2>
+            
+            <article>
+                <form action="#" method="POST" enctype="multipart/form-data">
+                    
+                    <!-- Хувийн мэдээлэл -->
+                    <fieldset>
+                        <legend>1. Хувийн мэдээлэл</legend>
+
+                        <div>
+                            <label for="fullname">Овог нэр:</label><br>
+                            <input type="text" id="fullname" name="fullname" required minlength="2" placeholder="Энхбаатар Насанжаргал">
+                        </div>
+                        <br>
+
+                        <div>
+                            <label for="email">И-мэйл хаяг:</label><br>
+                            <input type="email" id="email" name="email" required placeholder="nasanjargal@example.com">
+                        </div>
+                        <br>
+
+                        <div>
+                            <label for="password">Нууц үг (Хамгийн багадаа 8 тэмдэгт, ядаж 1 үсэг ба 1 тоо):</label><br>
+                            <input type="password" id="password" name="password" required minlength="8" pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}" title="Нууц үг нь хамгийн багадаа 8 тэмдэгттэй, ядаж нэг үсэг ба нэг тоо агуулсан байх ёстой.">
+                        </div>
+                        <br>
+
+                        <div>
+                            <label for="birthdate">Төрсөн огноо:</label><br>
+                            <input type="date" id="birthdate" name="birthdate" required>
+                        </div>
+                        <br>
+
+                        <div>
+                            <label>Хүйс:</label><br>
+                            <input type="radio" id="male" name="gender" value="male" required>
+                            <label for="male">Эрэгтэй</label>
+                            
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Эмэгтэй</label>
+                        </div>
+                        <br>
+
+                        <div>
+                            <label for="education">Боловсролын түвшин:</label><br>
+                            <select id="education" name="education" required>
+                                <option value="">-- Сонгоно уу --</option>
+                                <option value="highschool">Бүрэн дунд</option>
+                                <option value="bachelor" selected>Бакалавр</option>
+                                <option value="master">Магистр</option>
+                                <option value="doctorate">Доктор</option>
+                            </select>
+                        </div>
+                        <br>
+
+                        <div>
+                            <label for="profile_pic">Нүүр зураг / Анкетын файл (PDF эсвэл Зураг):</label><br>
+                            <input type="file" id="profile_pic" name="profile_pic" required accept="image/*,.pdf">
+                        </div>
+                    </fieldset>
+                    <br>
+
+                    <!-- Нэмэлт ба Мэргэжлийн мэдээлэл -->
+                    <fieldset>
+                        <legend>2. Нэмэлт мэдээлэл ба Сонголт</legend>
+
+                        <div>
+                            <label>Эзэмшсэн програмчлалын хэлнүүд ба ур чадвар:</label><br>
+                            <input type="checkbox" id="lang_html" name="languages" value="HTML/CSS">
+                            <label for="lang_html">HTML / CSS</label><br>
+
+                            <input type="checkbox" id="lang_py" name="languages" value="Python">
+                            <label for="lang_py">Python / Pandas / NumPy</label><br>
+
+                            <input type="checkbox" id="lang_cpp" name="languages" value="C++">
+                            <label for="lang_cpp">C / C++</label><br>
+
+                            <input type="checkbox" id="lang_iot" name="languages" value="IoT">
+                            <label for="lang_iot">IoT / Arduino / ESP32</label>
+                        </div>
+                        <br>
+
+                        <div>
+                            <label for="bio">Өөрийн тухай товч танилцуулга болон зорилго:</label><br>
+                            <textarea id="bio" name="bio" rows="5" cols="60" placeholder="Өөрийн суралцаж буй чиглэл, сонирхол болон бүтээсэн төслүүдийн талаар товч бичнэ үү..."></textarea>
+                        </div>
+                    </fieldset>
+                    <br>
+
+                    <!-- Илгээх ба Арилгах товчлуур -->
+                    <div>
+                        <button type="submit">Анкет илгээх</button>
+                        <button type="reset">Дахин эхлэх</button>
+                    </div>
+                </form>
+            </article>
+        </section>
+
+        <!-- 3. Дүнгийн хүснэгт -->
+        <section id="grades">
+            <h2>Миний дүн</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Хичээлийн нэр</th>
+                        <th>Кредит</th>
+                        <th>Үнэлгээний дүн</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Вэб програмчлалын үндэс</td>
+                        <td>3</td>
+                        <td>95 (A)</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Өгөгдлийн бүтэц ба алгоритм</td>
+                        <td>3</td>
+                        <td>88 (B)</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Дижитал логик дизайн</td>
+                        <td>3</td>
+                        <td>92 (A)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <!-- Вэбийн хөл хэсэг -->
+    <footer>
+        <p>&copy; 2026 Оюутны Бүртгэлийн  анкет. Вэб Хөгжүүлэлтийн Лаборатори 2.</p>
+    </footer>
+
+</body>
+</html>`
